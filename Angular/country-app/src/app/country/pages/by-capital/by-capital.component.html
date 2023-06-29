@@ -1,0 +1,28 @@
+<h3>Por Capital</h3>
+<hr />
+<div class="row">
+  <div class="col">
+    <app-search-form
+      (onSubmit)="onSubmit($event)"
+      (onDebounce)="onDebounceSearch($event)"
+      placeholder="Buscar capital..."
+      [initialValue]="searchedCapital"
+    ></app-search-form>
+  </div>
+</div>
+<hr />
+<div class="row" *ngIf="isError && !isFetching">
+  <div class="col-12">
+    <div class="alert alert-danger">
+      No se encontraron paises con el nombre: {{ searchedCapital }}
+    </div>
+  </div>
+</div>
+<div class="row" *ngIf="isFetching">
+  <app-spinner></app-spinner>
+</div>
+<div class="row" *ngIf="!isError && !isFetching">
+  <div class="col">
+    <app-country-list [countries]="countries"></app-country-list>
+  </div>
+</div>

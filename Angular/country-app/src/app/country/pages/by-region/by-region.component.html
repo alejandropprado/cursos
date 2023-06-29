@@ -1,0 +1,27 @@
+<h3>Por Región</h3>
+<hr />
+<h5>Selecciones la región</h5>
+<div class="row">
+  <div class="col">
+    <div class="btn-group" role="group">
+      <button
+        *ngFor="let region of regions"
+        class="btn btn-outline-primary"
+        [class.active]="region === selectedRegion"
+        (click)="onSelectRegion(region)"
+      >
+        {{ region | titlecase }}
+      </button>
+    </div>
+  </div>
+</div>
+<hr />
+
+<div class="row">
+  <div class="col">
+    <app-spinner *ngIf="isFetching; else table"></app-spinner>
+    <ng-template #table>
+      <app-country-list [countries]="countries"></app-country-list>
+    </ng-template>
+  </div>
+</div>

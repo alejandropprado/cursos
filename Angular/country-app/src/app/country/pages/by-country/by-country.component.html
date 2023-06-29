@@ -1,0 +1,31 @@
+<h3>Por País</h3>
+<hr />
+<div class="row">
+  <div class="col">
+    <app-search-form
+      (onSubmit)="onSubmit($event)"
+      (onDebounce)="onDebounceSearch($event)"
+      placeholder="Buscar país..."
+      [initialValue]="searchedCountry"
+    ></app-search-form>
+  </div>
+</div>
+<hr />
+<div class="row" *ngIf="isError && !isFetching">
+  <div class="col-12">
+    <div class="alert alert-danger">
+      No se encontraron paises con el nombre: {{ searchedCountry }}
+    </div>
+  </div>
+</div>
+<div class="row" *ngIf="isFetching">
+  <div class="d-flex align-items-center">
+    <strong>Buscando...</strong>
+    <div class="spinner-border ms-auto" role="status" aria-hidden="true"></div>
+  </div>
+</div>
+<div class="row" *ngIf="!isError && !isFetching">
+  <div class="col">
+    <app-country-list [countries]="countries"></app-country-list>
+  </div>
+</div>
