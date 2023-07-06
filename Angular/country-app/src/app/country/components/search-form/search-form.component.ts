@@ -26,7 +26,7 @@ export class SearchFormComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.search = this.initialValue;
     this.debouncerSubscription = this.debouncer
-      .pipe(debounceTime(300))
+      .pipe(debounceTime(600))
       .subscribe((value) => {
         this.onDebounce.emit(value);
       });
@@ -40,7 +40,7 @@ export class SearchFormComponent implements OnInit, OnDestroy {
     this.onSubmit.emit(this.search);
   }
 
-  pressKey() {
+  onPressKey() {
     this.debouncer.next(this.search);
   }
 }

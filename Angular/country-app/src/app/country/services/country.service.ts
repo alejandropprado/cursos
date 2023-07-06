@@ -102,7 +102,7 @@ export class CountryService {
         url,
         options?.params ? { params: options?.params } : {}
       )
-      .pipe(map(this.countryResponseAdapter), delay(2000));
+      .pipe(map(this.countryResponseAdapter));
   }
 
   private countryResponseAdapter<
