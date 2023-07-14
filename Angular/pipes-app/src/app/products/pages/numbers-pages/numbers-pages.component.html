@@ -1,0 +1,54 @@
+<p-panel header="Pipes Númericos" class="p-1">
+  <p>Pipes incluidos de Angular</p>
+</p-panel>
+
+<div class="grid">
+  <div class="col-12">
+    <p-card header="custom date">
+      <div class="grid">
+        <div class="col-6">
+          <ol>
+            <li>Numero normal</li>
+            <li>Numero con 2 decimales | number : '1.2-2'</li>
+            <li>Numero con hasta 10 decimales | number : '1.0-10'</li>
+            <li>Numero con 10 decimales | number : '1.10-10'</li>
+            <li>Numero con 4 decimales | number : '1.4-4'</li>
+          </ol>
+          <hr />
+          <ol>
+            <li>Numero con divisa por defecto</li>
+            <li>Numero con divisa | currency: 'CLP'</li>
+            <li>Numero con divisa | currency: 'CLP': simbolo</li>
+            <li>Numero con divisa | currency: 'CLP': simbolo: decimales</li>
+          </ol>
+          <hr />
+          <ol>
+            <li>Porcentaje</li>
+            <li>Porcentaje con 2 decimales</li>
+          </ol>
+        </div>
+        <div class="col-6">
+          <ol>
+            <li>{{ numberWithDecimals }}</li>
+            <li>{{ numberWithDecimals | number : "1.2-2" }}</li>
+            <li>{{ numberWithDecimals | number : "1.0-10" }}</li>
+            <li>{{ numberWithDecimals | number : "1.10-10" }}</li>
+            <li>{{ numberWithDecimals | number : "1.4-4" }}</li>
+          </ol>
+          <hr />
+          <ol>
+            <li>{{ numberWithDecimals | currency }}</li>
+            <li>{{ numberWithDecimals | currency : "CLP" }}</li>
+            <li>{{ numberWithDecimals | currency : "CLP" : "$$$" }}</li>
+            <li>{{ numberWithDecimals | currency : "CLP" : "$" : "1.4-4" }}</li>
+          </ol>
+          <hr />
+          <ol>
+            <li>{{ percentage | percent }}</li>
+            <li>{{ percentage | percent : "1.2-2" }}</li>
+          </ol>
+        </div>
+      </div>
+    </p-card>
+  </div>
+</div>
